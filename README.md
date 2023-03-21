@@ -21,9 +21,6 @@
 - GPU：NVIDIA GeForce GTX 1060
 <hr style=" border:solid; width:100px; height:1px;" color=#000000 size=1">
 
-@[TOC](文章目录)
-<hr style=" border:solid; width:100px; height:1px;" color=#000000 size=1">
-
 # 前言
 &nbsp;&nbsp;以下就是基于C++的AI五子棋游戏项目的详细开发教程，我对于每一步都进行了详细的注释以及图解，相信读者只要按照我的步骤一步一步做下去肯定也能实现自己的AI五子棋，当然，读者也可以根据自己的喜好调整游戏项目素材，以便达到最佳效果。下面就是本文的全部内容了！
 
