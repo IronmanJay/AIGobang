@@ -72,7 +72,7 @@
 ## 4.1 设计Chess（棋盘）类主要接口
 
 1. 我们在Chess.h中设计Chess（棋盘）类的主要接口，这些主要接口不需要具体实现，只是暴露给外部的接口，等待外部使用的时候在进行个性化的实现即可。Chess.h中的代码如下：
-   ```c++
+   ```cpp
    #pragma once
    
    // 表示落子位置
@@ -122,7 +122,7 @@
 
 1. 同理，AI.h中的代码如下：
 
-   ```c++
+   ```cpp
    #pragma once
    #include "Chess.h"
    
@@ -143,7 +143,7 @@
 
 1. 同理，Man.h中的代码如下：
 
-   ```c++
+   ```cpp
    #pragma once
    #include "Chess.h"
    
@@ -165,7 +165,7 @@
 
 1. 同理，ChessGame.h中的代码如下：
 
-   ```c++
+   ```cpp
    #pragma once
    
    class ChessGame
@@ -200,7 +200,7 @@
 
 1. 此时我们已经创建好了整个游戏的基本接口并进行了初步的实现，但是游戏的框架我们目前还没有创建，所以下面的工作应该创建游戏的基本框架。因为游戏要由ChessGame类控制，所以应该由ChessGame类调用各个类的功能，所以首先在ChessGame.h加入如下代码，此时就完成了整个游戏的基本内容创建：
 
-   ```c++
+   ```c
    #pragma once
    #include "Man.h"
    #include "AI.h"
@@ -226,7 +226,7 @@
 
 2. 当游戏的基本内容创建好后，我们就要完成游戏的基本逻辑了，当然，此时只是简单的面向对象的逻辑实现，并不涉及具体的开发，具体的开发要到后面才具体实现。我们此时只需要在ChessGame.cpp中加入如下代码即可：
 
-   ```c++
+   ```c
    #include "ChessGame.h"
    
    ChessGame::ChessGame(Man* man, AI* ai, Chess* chess)
@@ -279,7 +279,7 @@
 
 5. 在main.cpp中加入如下代码：
 
-   ```c++
+   ```cpp
    #include <iostream>
    #include "ChessGame.h"
    
@@ -326,7 +326,7 @@
 
 2. 然后需要添加一些棋盘初始化所需要的数据，我们只需要在Chess.h中加入如下代码：
 
-   ```c++
+   ```cpp
    private:
    	IMAGE chessBlackImg; // 黑棋棋子
    	IMAGE chessWhiteImg; // 白棋棋子
@@ -350,9 +350,8 @@
 
 1. 我们需要利用刚才创建的棋盘类的数据进行棋盘的创建，首先就需要写一个函数来创建棋盘，所以我们在Chess.h中加入如下代码：
 
-   ```c++
+   ```cpp
    Chess(int gradeSize, int maiginX, int marginY, float chessSize);
-   
    ```
 
 2. 然后鼠标放在刚刚创建的函数上，点击“显示可能的修补程序”：
@@ -366,7 +365,7 @@
 
 5. 下面就要利用刚才创建的数据构造棋盘了，只需要在Chess.cpp中加入如下代码：
 
-   ```c++
+   ```cpp
    // 构造棋盘
    Chess::Chess(int gradeSize, int marginX, int marginY, float chessSize)
    {
@@ -385,7 +384,6 @@
    		chessMap.push_back(row);
    	}
    }
-   
    ```
 
 6. 然后来到main.cpp中，使用我们刚刚创建的构造函数，传入参数就构造好棋盘了
@@ -407,15 +405,14 @@
 
 3. 在Chess.cpp中加入如下头文件和相关库，目的是可以播放音乐：
 
-   ```c++
+   ```cpp
    #include <mmsystem.h>
    #pragma comment(lib,"winmm.lib")
-   
    ```
 
 4. 在Chess.cpp中加入如下代码，目的是看到实际的棋盘并播放音乐：
 
-   ```c++
+   ```cpp
    // 棋盘初始化
    void Chess::init()
    {
@@ -439,7 +436,6 @@
    	// 确定谁先下棋
    	playerFlag = true;
    }
-   
    ```
 
 5. 然后我们测试一下：
@@ -454,28 +450,26 @@
 
 1. 给棋手类添加棋盘数据成员，在Man.h中加入如下代码：
 
-   ```c++
+   ```cpp
    private:
    	Chess* chess;
-   
    ```
 
 ## 7.2 棋手下棋功能初始化
 
 1. 在棋手类初始化时，传入棋盘类指针，只需要将Man.cpp中的init函数替换为如下代码：
 
-   ```c++
+   ```cpp
    // 棋手初始化
    void Man::init(Chess * chess)
    {
    	this->chess = chess;
    }
-   
    ```
 
 2. 为了实现棋手下棋功能，将Man.cpp中的go函数替换为如下代码：
 
-   ```c++
+   ```cpp
    // 棋手下棋
    void Man::go()
    {
@@ -496,7 +490,6 @@
    	// 落子
    	chess->chessDown(&pos, CHESS_BLACK);
    }
-   
    ```
 
 ## 7.3 判断棋手下棋位置是否有效
@@ -506,7 +499,7 @@
 
 2. 棋子肯定要落在两条线的交界处，一共四个点，所以我们首先要计算落子位置距离四个点的距离。这里我们需要设置一个“阈值”，如果落子位置距离某个点的距离小于此“阈值”，就认为这个点就是真正的落子位置，否则就不落子，这个“阈值”的大小要小于棋子大小的一半，还要注意棋盘在计算机中存储的二维数组下标从0开始。此时我们只需要将如下代码加入Chess.cpp中：
 
-   ```c++
+   ```cpp
    #include <math.h>
    
    // 判断落子是否有效
@@ -590,7 +583,6 @@
    	// 返回落子是否有效的判断结果
    	return res;
    }
-   
    ```
 
 3. 此时就可以判断落子的位置是否有效了，为了验证我们的代码没有问题，我们需要验证一下，我们在Chess.cpp中加入如下代码，测试成功后可以删除加入的代码：
@@ -609,7 +601,7 @@
 
 1. 为了实现棋盘落子，首先在Chess.cpp中加入如下代码，需要注意绘图的左边是左上角，所以为了让棋子的中心点在行线和列线的交界处，棋子的行和列坐标都需要减0.5倍的棋格大小，这一点需要格外关注：
 
-   ```c++
+   ```cpp
    // 棋盘落子
    void Chess::chessDown(ChessPos * pos, chess_kind chess)
    {
@@ -628,7 +620,6 @@
    		putimage(x, y, &chessBlackImg);
    	}
    }
-   
    ```
 
 2. 然后我们来测试一下，发现可以成功落子，而且音效也没问题，但是每个棋子周围都有黑边，这些黑边肯定是不应该存在的：
@@ -636,7 +627,7 @@
 
 3. 落子后的棋子出现黑边是因为Easyx不支持png格式图片，为了解决这个问题，我们只需要在Chess.cpp中加入如下函数：
 
-   ```c++
+   ```cpp
    // 解决Easyx不支持png格式图片的函数
    void putimagePNG(int x, int y, IMAGE* picture) //x为载入图片的X坐标，y为Y坐标
    {
@@ -673,7 +664,6 @@
    		}
    	}
    }
-   
    ```
 
 4. 然后修改Chess.cpp中的Chess::chessDown函数为如下图示：
@@ -684,15 +674,14 @@
 
 6. 现在虽然已经实现了落子效果，但是只是表现了出来，并没有将落子数据存储在计算机中，我们之前创建了二维数组，就是为了存储落子数据的，所以我们应该将我们的落子信息存储在二维数组中。首先在Chess.h的private中加入如下函数：
 
-   ```c++
+   ```cpp
    // 将落子信息存储到二维数组中
    void updateGameMap(ChessPos* pos);
-   
    ```
 
 7. 然后在Chess.cpp中加入如下函数：
 
-   ```c++
+   ```cpp
    // 将落子信息存储在二维数组中
    void Chess::updateGameMap(ChessPos * pos)
    {
@@ -701,7 +690,6 @@
    	// 黑白方交换行棋
    	playerFlag = !playerFlag;
    }
-   
    ```
 
 8. 然后在Chess.cpp中的Chess::chessDown函数中调用Chess::updateGameMap：
@@ -720,18 +708,17 @@
 
 2. 基于以上分析，我们首先在AI.h中加入两个数据成员：
 
-   ```c++
+   ```cpp
    private:
    	// 棋盘对象
    	Chess* chess;
    	// 评分数组
    	vector<vector<int>> scoreMap;
-   
    ```
 
 3. 然后在AI.cpp中加入如下代码：
 
-   ```c++
+   ```cpp
    // AI初始化
    void AI::init(Chess * chess)
    {
@@ -747,7 +734,6 @@
    		scoreMap.push_back(row);
    	}
    }
-   
    ```
 
 
@@ -814,16 +800,15 @@
 
 1. 有了以上对AI下棋原理的分析，下面我们就要根据分析的结果进行代码编写了，首先我们要定义一个函数，用来处理AI在下棋过程中落子点的价值评分计算，那么我们在AI.h中加入如下函数：
 
-   ```c++
+   ```cpp
    private:
    	// AI对棋局进行评分
    	void calculateScore();
-   
    ```
 
 2. 在AI.cpp中加入如下代码：
 
-   ```c++
+   ```cpp
    // AI对棋局进行评分计算
    void AI::calculateScore()
    {
@@ -1036,18 +1021,16 @@
    		}
    	}
    }
-   
    ```
 
 ## 8.4 实现AI下棋
 
 1. 当每个可能的落子点各个方向的价值评分计算完成后，就可以让AI进行“思考”，选出价值评分最高的点进行落子。首先在AI.h中加入如下代码：
 
-   ```c++
+   ```cpp
    private:
    	// 找出价值评分最高的点落子
    	ChessPos think();
-   
    ```
 
 2. 然后在Chess.h中加入如下代码：
@@ -1055,7 +1038,7 @@
 
 3. 然后在AI.cpp中加入如下代码：
 
-   ```c++
+   ```cpp
    // 找出价值评分最高的点落子
    ChessPos AI::think()
    {
@@ -1092,12 +1075,11 @@
    	// 返回价值最大值点
    	return maxPoints[index];
    }
-   
    ```
 
 4. 然后在AI.cpp中加入如下代码：
 
-   ```c++
+   ```cpp
    // AI下棋
    void AI::go()
    {
@@ -1108,7 +1090,6 @@
    	// 在AI计算后的落子点落子
    	chess->chessDown(&pos, CHESS_WHITE);
    }
-   
    ```
 
 5. 将Chess.cpp中的Chess::getGradeSize函数和两个Chess::getChessData函数进行如下修改：
@@ -1123,23 +1104,21 @@
 
 1. 首先在Chess.h中加入如下函数，目的是检查当前谁嬴谁输，然后根据检查结果来进行胜负后的处理：
 
-   ```c++
+   ```cpp
    private:
        // 检查当前谁嬴谁输，如果胜负已分就返回true，否则返回false
        bool checkWin();
-   
    ```
 
 2. 在Chess.cpp中加入如下头文件
 
-   ```c++
+   ```cpp
    #include <conio.h>
-   
    ```
 
 3. 将Chess.cpp中的Chess::checkOver函数修改为如下内容：
 
-   ```c++
+   ```cpp
    // 胜负判定
    bool Chess::checkOver()
    {
@@ -1167,7 +1146,6 @@
    	}
    	return false;
    }
-   
    ```
 
 ## 9.2 胜负判定原理
@@ -1181,11 +1159,10 @@
 
 1. 有了以上的原理分析后，我们就可以写代码了。首先在Chess.h中加入某一落子点位置的数据成员：
 
-   ```c++
+   ```cpp
    private:
    	// 某一落子点的位置
    	ChessPos lastPos;
-   
    ```
 
 2. 然后在Chess.cpp中的Chess::updateGameMap函数中加入如下代码：
@@ -1193,7 +1170,7 @@
 
 3. 然后在Chess.cpp中加入如下代码：
 
-   ```c++
+   ```cpp
    // 检查当前谁嬴谁输，如果胜负已分就返回true，否则返回false
    bool Chess::checkWin()
    {
@@ -1234,7 +1211,6 @@
    	}
    	return false;
    }
-   
    ```
 
 4. 写完之后我们可以测试一下：
