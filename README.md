@@ -29,17 +29,21 @@
 # 一、创建项目
 
 1. 打开Microsoft Visual Studio（以下简称VS）后，点击“新建”->“项目”
+									 
 ![请添加图片描述](https://img-blog.csdnimg.cn/1ddf99b12d894c85b77e0d9bbd823cf7.png#pic_center)
 
 2. 然后输入项目名称与项目位置，然后点击“确定”
+									 
 ![请添加图片描述](https://img-blog.csdnimg.cn/08ec3693220a490e9b0a9add53493a11.png#pic_center)
 
 # 二、导入素材
 
 1. 在项目内新建“resource”文件夹，准备存放项目的素材文件
+									 
 ![请添加图片描述](https://img-blog.csdnimg.cn/e0e40fb0ecdb4267b23c5a337554af9b.png#pic_center)
 
 2. 将项目所用素材导入项目中的“resource”文件夹中，读者可以用自己的素材，也可以用我的素材，我的素材的下载链接已经放在上面的博客中了
+									 
 ![请添加图片描述](https://img-blog.csdnimg.cn/b2b9192796994b70a0dc311f928d3ec0.png#pic_center)
 
 # 三、项目框架设计
@@ -47,6 +51,7 @@
 ## 3.1 设计项目框架
 
 1. 整个项目的框架如下图所示，所有的代码都是根据以下四个类进行编写的：
+									 
 ![请添加图片描述](https://img-blog.csdnimg.cn/80cc2a128fad48ff8d82684083dd4cdd.png#pic_center)
    - Man（棋手）：下棋的人
    - Chess（棋盘）：下棋的地方
@@ -56,15 +61,19 @@
 ## 3.2 根据项目框架设计类
 
 1. 根据刚才设计好的项目框架，我们就要将其一一建立起来。首先创建Man（棋手）类，在“源文件”上右键，点击“添加”中的“类”：
+									 
 ![请添加图片描述](https://img-blog.csdnimg.cn/c2d3efac481d440e925c223a50d8689b.png#pic_center)
 
 2. 在“类名”中输入“Man”，点击“确定”就可以了，其余的文件自动生成
+									 
 ![请添加图片描述](https://img-blog.csdnimg.cn/9afdf448fe47427fb3153816b78e62d4.png#pic_center)
 
 3. 可以发现，已经成功生成了
+									 
 ![请添加图片描述](https://img-blog.csdnimg.cn/cc2379b15dde4a329b75e8390c05fc6c.png#pic_center)
 
 4. 按照创建Man（棋手）类同样的方法，创建其他三个类，最终效果如下图所示：
+									 
 ![请添加图片描述](https://img-blog.csdnimg.cn/789c8c87f9184c2e96bc3db245102543.png#pic_center)
 
 # 四、设计游戏主要接口
@@ -182,18 +191,23 @@
 ## 4.5 设计各个接口的具体实现
 
 1. 我们现在已经把我们项目的基本主要接口生成了，但是我们还需要将这些接口实现一下，以助于后面项目开发的使用。此时我们可以看到，刚刚创建好的接口函数下面有一个绿色的波浪线：
+		     
 ![请添加图片描述](https://img-blog.csdnimg.cn/cb79e53702c0430a83533e238b36a204.png#pic_center)
 
 2. 这个绿色的波浪线就是VS在提示我们还没有生成该接口的具体实现，所以我们需要实现这个接口。我们只需要将鼠标放在绿色波浪线上，然后点击“显示可能的修补程序”：
+		     
 ![请添加图片描述](https://img-blog.csdnimg.cn/949cdb580a3f41a7bdb23dceac46fc2a.png#pic_center)
 
 3. 然后选择我红框标注的选项即可：
+		     
 ![请添加图片描述](https://img-blog.csdnimg.cn/cb8db00327bf44c3b8a186678bcb8e56.png#pic_center)
 
 4. 此时VS就帮我们自动地完成了接口的具体实现，当然，里面的具体内容需要根据不同项目需求自己填写。此时接口函数下面的绿色波浪线已经不存在了，那么我们只需要按“Ctrl+s”保存，然后关闭即可，此时VS就已经帮我们完成了：
+		     
 ![请添加图片描述](https://img-blog.csdnimg.cn/ecda93aa2240439197eb11e51c4c3c66.png#pic_center)
 
 5. 其余的所有接口函数都按照上面的步骤完成接口的具体实现，不再一一赘述。具体的接口函数实现后的项目结构如下图所示：
+		     
 ![请添加图片描述](https://img-blog.csdnimg.cn/f4c33dcc69c84376864d45ee79c936fa.png#pic_center)
 
 # 五、设计游戏基本框架
@@ -272,9 +286,11 @@
    ```
 
 3. 此时就完成了整个游戏的基本框架，下面我们就要往这个框架中添加具体内容了。当然，在这之前我们还需要使用一个主函数将刚刚创建的框架串联起来。首先创建main.cpp，这里面就是游戏的整体逻辑，具体内容后面再写，在“源文件”上右键，选择“添加”->“新建项”：
+			 
 ![请添加图片描述](https://img-blog.csdnimg.cn/b9e1ff693a0147eb8a091701eb2e8fab.png#pic_center)
 
-4. 选择C++文件(.cpp)后输入名字，最后点击“添加”即可
+4. 选择C++文件(.cpp)后输入名字，最后点击“添加”即可：
+			 
 ![请添加图片描述](https://img-blog.csdnimg.cn/ee5cacea932343be89bdfc95efcd6fee.png#pic_center)
 
 5. 在main.cpp中加入如下代码：
@@ -298,9 +314,11 @@
    ```
 
 6. 此时我们可以运行测试一下，点击“调试”中的“开始执行(不调试)(H)”：
+			 
 ![请添加图片描述](https://img-blog.csdnimg.cn/4a0ddb3a1c43466a892f106da918da9c.png#pic_center)
 
 7. 可以发现到目前为止，我们的程序没有问题：
+			 
 ![请添加图片描述](https://img-blog.csdnimg.cn/c941d9651d4b49ad86fae0623afdf777.png#pic_center)
 
 # 六、棋盘初始化
@@ -308,20 +326,25 @@
 ## 6.1 EasyX的使用
 
 1. 因为游戏要进行绘图，所以我们使用EasyX来完成游戏的绘图接口，可以帮助我们编写图形程序，EasyX的下载链接也在博客的上方。下载后双击打开：
+			 
 ![请添加图片描述](https://img-blog.csdnimg.cn/100973f59c5549a684aaf0f281e81ae9.png#pic_center)
 
 2. 点击“下一步”：
+			 
 ![请添加图片描述](https://img-blog.csdnimg.cn/9a0e12bc793d4468bf88d6b1d677fe7f.png#pic_center)
 
 3. 然后选择你对应版本的编译器进行“安装”：
+			 
 ![请添加图片描述](https://img-blog.csdnimg.cn/aa4d270645444d70913a852e2e392fe1.png#pic_center)
 
 4. 然后会提示你安装成功：
+			 
 ![请添加图片描述](https://img-blog.csdnimg.cn/a1dc4a68f8254e5c815fc68079f788f7.png#pic_center)
 
 ## 6.2 设计棋盘的数据成员
 
 1. 当我们安装好EasyX图形库后，就要在Chess.h中引入一些我们所需要的头文件了：
+			 
 ![请添加图片描述](https://img-blog.csdnimg.cn/f0a69f49631b48ed8563347d5c29d5b5.png#pic_center)
 
 2. 然后需要添加一些棋盘初始化所需要的数据，我们只需要在Chess.h中加入如下代码：
@@ -355,12 +378,15 @@
    ```
 
 2. 然后鼠标放在刚刚创建的函数上，点击“显示可能的修补程序”：
+			 
 ![请添加图片描述](https://img-blog.csdnimg.cn/2c4b2ebb9811418f931786af31d0c2ef.png#pic_center)
 
 3. 然后选择红框中的内容：
+			 
 ![请添加图片描述](https://img-blog.csdnimg.cn/9862810979314311a460a1ff7c4b2ffc.png#pic_center)
 
-4. 然后按“Ctrl+S”保存
+4. 然后按“Ctrl+S”保存：
+			 
 ![请添加图片描述](https://img-blog.csdnimg.cn/2ae48447a8284c938ab5fc2e9326c58f.png#pic_center)
 
 5. 下面就要利用刚才创建的数据构造棋盘了，只需要在Chess.cpp中加入如下代码：
@@ -386,21 +412,26 @@
    }
    ```
 
-6. 然后来到main.cpp中，使用我们刚刚创建的构造函数，传入参数就构造好棋盘了
+6. 然后来到main.cpp中，使用我们刚刚创建的构造函数，传入参数就构造好棋盘了：
+			 
 ![请添加图片描述](https://img-blog.csdnimg.cn/4f32c6d047724490a1cd0642ee47d75a.png#pic_center)
 
 7. 然后我们还是来测试一下，点击“调试”中的“开始执行(不调试)(H)”：
+			 
 ![请添加图片描述](https://img-blog.csdnimg.cn/73be54e106a54aee8fbdf55a9bd58de4.png#pic_center)
 
 8. 可以发现，到目前为止，我们的程序没有任何问题：
+			 
 ![请添加图片描述](https://img-blog.csdnimg.cn/75f7e1a5e3d64b99824376316a3d93f9.png#pic_center)
 
 ## 6.4 棋盘初始化
 
 1. 在项目上右键后，点击“属性”：
+			 
 ![请添加图片描述](https://img-blog.csdnimg.cn/c8646c5d46624d5f9ffafb561e2a371a.png#pic_center)
 
 2. 在“常规”的“字符集”中，选择“使用多字节字符集”：
+			 
 ![请添加图片描述](https://img-blog.csdnimg.cn/eca22960712b49dcabc477ac8b30e03a.png#pic_center)
 
 3. 在Chess.cpp中加入如下头文件和相关库，目的是可以播放音乐：
@@ -439,9 +470,11 @@
    ```
 
 5. 然后我们测试一下：
+						      
 ![请添加图片描述](https://img-blog.csdnimg.cn/cd65f9a50ef4481db3f3743fb805050c.png#pic_center)
 
 6. 发现已经成功显示棋盘，并成功播放音乐了：
+						      
 ![请添加图片描述](https://img-blog.csdnimg.cn/ab12341368fa413d8cb30a81db28b89a.png#pic_center)
 
 # 七、棋手下棋实现
@@ -495,6 +528,7 @@
 ## 7.3 判断棋手下棋位置是否有效
 
 1. 下棋最重要的一点就是让计算机知道棋下在了哪里，如何解决这个问题呢？我们可以看下面的图示：
+						      
 ![请添加图片描述](https://img-blog.csdnimg.cn/4643fb233a46415a8b74318878031cbf.png#pic_center)
 
 2. 棋子肯定要落在两条线的交界处，一共四个点，所以我们首先要计算落子位置距离四个点的距离。这里我们需要设置一个“阈值”，如果落子位置距离某个点的距离小于此“阈值”，就认为这个点就是真正的落子位置，否则就不落子，这个“阈值”的大小要小于棋子大小的一半，还要注意棋盘在计算机中存储的二维数组下标从0开始。此时我们只需要将如下代码加入Chess.cpp中：
@@ -586,15 +620,19 @@
    ```
 
 3. 此时就可以判断落子的位置是否有效了，为了验证我们的代码没有问题，我们需要验证一下，我们在Chess.cpp中加入如下代码，测试成功后可以删除加入的代码：
+						      
 ![请添加图片描述](https://img-blog.csdnimg.cn/db66c107f0fd452c8d914f99f2295200.png#pic_center)
 
 4. 在Man.cpp中加入如下代码，打印落子位置，同样，测试成功之后也可以删除加入的代码：
+						      
 ![请添加图片描述](https://img-blog.csdnimg.cn/d1fb5c511b4842c38c4b2f1b7bcc008a.png#pic_center)
 
 5. 此时我们就可以来到main.cpp中进行测试了：
+						      
 ![请添加图片描述](https://img-blog.csdnimg.cn/6b38ebc28d3d4d1e879cc993748f0eaf.png#pic_center)
 
 6. 可以发现正确获取落子位置了，这说明我们的代码没有任何问题。测试成功之后，要把上面加的两处代码删掉：
+						      
 ![请添加图片描述](https://img-blog.csdnimg.cn/7b546a6c40744a11b7e8e51ab970df7e.png#pic_center)
 
 ## 7.4 实现棋手下棋
@@ -623,6 +661,7 @@
    ```
 
 2. 然后我们来测试一下，发现可以成功落子，而且音效也没问题，但是每个棋子周围都有黑边，这些黑边肯定是不应该存在的：
+					       
 ![请添加图片描述](https://img-blog.csdnimg.cn/5f9314ca06d24fd1abd841632a51ee68.png#pic_center)
 
 3. 落子后的棋子出现黑边是因为Easyx不支持png格式图片，为了解决这个问题，我们只需要在Chess.cpp中加入如下函数：
@@ -667,9 +706,11 @@
    ```
 
 4. 然后修改Chess.cpp中的Chess::chessDown函数为如下图示：
+					       
 ![请添加图片描述](https://img-blog.csdnimg.cn/4069df495b974f2e8ebc5df0873a5678.png#pic_center)
 
 5. 此时我们再来测试一下，可以发现黑边没有了，音效也没问题：
+					       
 ![请添加图片描述](https://img-blog.csdnimg.cn/aac6e674c4ad4aeeafc06c66d192b8f6.png#pic_center)
 
 6. 现在虽然已经实现了落子效果，但是只是表现了出来，并没有将落子数据存储在计算机中，我们之前创建了二维数组，就是为了存储落子数据的，所以我们应该将我们的落子信息存储在二维数组中。首先在Chess.h的private中加入如下函数：
@@ -693,6 +734,7 @@
    ```
 
 8. 然后在Chess.cpp中的Chess::chessDown函数中调用Chess::updateGameMap：
+					       
 ![请添加图片描述](https://img-blog.csdnimg.cn/1ba95ba6ce944010bb7961b0f78c92cb.png#pic_center)
 
 9. 此时就已经将棋手下棋的落子信息存储在了计算机的二维数组中，这样就方便我们后续操作了
@@ -742,6 +784,7 @@
 1. AI的下棋原理要比棋手下棋原理复杂得多，因为棋手是人工下棋，不需要计算机程序计算，而AI下棋需要根据棋手下棋的落子位置来找到下棋落子的最优策略，也就是说，AI需要对棋盘的所有可能落子点进行评分计算，然后选择一个评分最高的点落子，对于某个可能的落子点的评分，我们可以这么理解：此位置既可能是黑棋落子，也可能是白棋落子，将此位置想象为一个兵家必争之地，我们要做的就是判断黑棋夺取此位置获取的价值多，还是白棋夺取此位置获得的价值多，如果黑棋夺取此位置获取的价值更多，那么我们就应该让白棋落在这里，也就是要让白棋破坏黑棋夺得更多的价值；如果是白棋夺取此位置获取的价值更多，那么就让白棋下载此位置，以获取更多的价值，因为此时是AI执白棋，所以我们要尽可能地让AI获取更多的价值
 
 2. 对于AI来说，每一次落子后，此落子周围共有八个方向，对于每一个落子点，应该向该点的八个方向分别进行评分计算，评分计算的标准就是确定每个方向已经有几颗连续的棋子了。假设现在有一个可能的落子点如下图黑点所示：
+					       
 ![请添加图片描述](https://img-blog.csdnimg.cn/89ea5233c04b41f0a6c961e18d98cba2.png#pic_center)
 
 4. 根据上图可以发现，此次落子周围一共有八个方向，AI首先计算如果棋手在这个可能的位置落子，会有多大的价值，然后再计算AI在同样的位置落子，有多大的价值。那么如何评判价值的大小呢？我们可以将连续的落子数量作为评判的标准，如果黑棋或者白棋在这个位置落子，那么在这个位置的八个方向的某个方向上，一共有多少个连续的黑棋或白棋就是我们评判的标准，如果连续的黑棋或者白棋数量越多，那么在此位置落子的价值就越大
@@ -1034,6 +1077,7 @@
    ```
 
 2. 然后在Chess.h中加入如下代码：
+					       
 ![请添加图片描述](https://img-blog.csdnimg.cn/dc64b35af8b0447bb663e52ec7f75d55.png#pic_center)
 
 3. 然后在AI.cpp中加入如下代码：
@@ -1093,9 +1137,11 @@
    ```
 
 5. 将Chess.cpp中的Chess::getGradeSize函数和两个Chess::getChessData函数进行如下修改：
+					       
 ![请添加图片描述](https://img-blog.csdnimg.cn/c219444634e240dc9ff94eac4712cab4.png#pic_center)
 
 6. 然后测试一下，发现可以正常下棋了，而且智力还不错。读者可以根据自己的经验调整价值评分的赋值，从而让AI有更高的智力：
+					       
 ![请添加图片描述](https://img-blog.csdnimg.cn/a4ee260f9fb54a488ac5518761dad81d.png#pic_center)
 
 # 九、胜负判定实现
@@ -1151,6 +1197,7 @@
 ## 9.2 胜负判定原理
 
 1. 上面对胜负进行处理的过程是我们胜负判定实现的一个基本框架，其核心部分是checkWin函数，也就是我们如何判断当然谁赢谁输。我们可以这样想：对于某一个落子位置，我们要判断其八个方向是否连成五子，但是每次判断我们都可以同时根据偏移的落子位置，将其反方向是否连成五子进行判断，所以只需要判断四个大方向，八个小方向即可。假设我们首先判断水平方向，如下图所示：
+						      
 ![请添加图片描述](https://img-blog.csdnimg.cn/49aa1f1c3ec64cc8bef6dd68e1a38cf7.png#pic_center)
 
 2. 可以看到，对于某一落子位置，我们首先判断从此位置向右的连续五个位置是否是相同颜色，然后将起始落子点分别向左偏移一、二、三、四、五个位置再判断是否有连续的五个相同颜色的棋子，如果满足，就获胜，否则就没获胜。这样我们就可以在一个大方向的判断上同时判断两个小方向，就完成了我们的胜负判断，其余方向的胜负判断同理
@@ -1166,6 +1213,7 @@
    ```
 
 2. 然后在Chess.cpp中的Chess::updateGameMap函数中加入如下代码：
+						      
 ![请添加图片描述](https://img-blog.csdnimg.cn/e5ba90ec29654aacb40b4f0d2ea6dee3.png#pic_center)
 
 3. 然后在Chess.cpp中加入如下代码：
@@ -1215,13 +1263,17 @@
 
 4. 写完之后我们可以测试一下：
    - 黑棋（棋手）：
-   		- 黑棋（棋手）胜的棋面：![在这里插入图片描述](https://img-blog.csdnimg.cn/27fa3d6f4a1a44f9a0b53bb19abffbb9.png#pic_center)
+   		- 黑棋（棋手）胜的棋面：
+						      ![在这里插入图片描述](https://img-blog.csdnimg.cn/27fa3d6f4a1a44f9a0b53bb19abffbb9.png#pic_center)
    		- 黑棋（棋手）胜的判定：
+						      
 ![请添加图片描述](https://img-blog.csdnimg.cn/ea36b26264344aecbcb1cecf81eafbe4.png#pic_center)
    - 白棋（AI）：
   		- 白棋（AI）胜的棋面：
+						      
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/7795a0cf3bb44e37b113475e562f41a2.png#pic_center)  				
-		- 白棋（AI）胜的判定：![请添加图片描述](https://img-blog.csdnimg.cn/74bfa9eee4f546a48d32bf1bd9eddc12.png#pic_center)
+		- 白棋（AI）胜的判定：
+						      ![请添加图片描述](https://img-blog.csdnimg.cn/74bfa9eee4f546a48d32bf1bd9eddc12.png#pic_center)
 
 5. 可以看到，不管是黑棋（棋手）胜，还是白棋（AI）胜，都可以正常显示胜负的判定了。而且按回车（Enter）键还可以自动开启下一局
 
